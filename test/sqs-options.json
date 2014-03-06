@@ -1,0 +1,13 @@
+{
+	"awsConfig": {
+	  "accessKeyId": "STRING",
+	  "secretAccessKey": "STRING",
+	  "region": "us-east-1"
+	},
+	"QueueUrl": "https://sqs.us-east-1.amazonaws.com/#######/STRING",
+	"QueueOptions":  {
+	  "MaxNumberOfMessages": 10,
+	  "WaitTimeSeconds": 4,
+	  "VisibilityTimeout": 15
+	}
+}

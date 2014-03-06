@@ -1,0 +1,35 @@
+{
+  "name": "aws-sqs-stream",
+  "version": "0.0.0",
+  "description": "AWS SQS library written using node.js streams",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec -u tdd test/tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tommydudebreaux/aws-sqs-stream.git"
+  },
+  "keywords": [
+    "aws",
+    "sqs",
+    "streams",
+    "mixdown"
+  ],
+  "author": "Tommy Messbauer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommydudebreaux/aws-sqs-stream/issues"
+  },
+  "homepage": "https://github.com/tommydudebreaux/aws-sqs-stream",
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "aws-sdk": "~2.0.0-rc10",
+    "memory-stream": "0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "broadway": "~0.2.9",
+    "async": "~0.2.10"
+  }
+}
