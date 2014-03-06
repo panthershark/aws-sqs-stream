@@ -1,6 +1,6 @@
 {
   "name": "aws-sqs-stream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AWS SQS library written using node.js streams",
   "main": "index.js",
   "scripts": {
