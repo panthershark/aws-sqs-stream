@@ -8,6 +8,8 @@ AWS SQS library written using node.js streams.
 
 ```
 var SqsStream = require('aws-sqs-stream').SqsStream;
+var MemoryStream = require('memory-stream');
+var AWS = require('aws-sdk');
 
 var sqsOptions = {
   "awsConfig": {
@@ -49,6 +51,7 @@ readStream.pipe(writeStream);
 
 ```
 var broadway = require('broadway');
+var MemoryStream = require('memory-stream');
 var SqsPlugin = require('aws-sqs-stream').SqsPlugin;
 var sqsOptions = {
   "awsConfig": {
