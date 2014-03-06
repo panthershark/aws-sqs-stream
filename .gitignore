@@ -13,5 +13,4 @@ results
 
 npm-debug.log
 node_modules
-test/private-sqs-options-streams1.json
-test/private-sqs-options-streams2.json
+test/private-sqs-options.json

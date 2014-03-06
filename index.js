@@ -55,12 +55,16 @@ var SqsPlugin = function(namespace) {
     var self =
     this[namespace] = {
 
-      messageStream: null,
+      sqsClient: null,
+
+      messageStream: function() {
+        return new SqsStream(options);
+      },
 
       // reject calls changeMessageVisibility which puts the message back in the queue and makes it available for receive again.
       reject: function(message, callback) {
 
-        return self.messageStream.sqsClient.changeMessageVisibility({
+        return self.sqsClient.changeMessageVisibility({
           QueueUrl: options.QueueUrl,
           ReceiptHandle: message.ReceiptHandle,
           VisibilityTimeout: 0
@@ -70,7 +74,7 @@ var SqsPlugin = function(namespace) {
       // ack calls deleteMessage to remove from the queue.  ack only fires delete which will remove the message from the queue.
       ack: function(message, callback) {
 
-        return self.messageStream.sqsClient.deleteMessage({
+        return self.sqsClient.deleteMessage({
           QueueUrl: options.QueueUrl,
           ReceiptHandle: message.ReceiptHandle
         }, callback);
@@ -81,16 +85,8 @@ var SqsPlugin = function(namespace) {
   };
 
   this.init = function(done) {
-    var err = null;
-    var self = this[namespace];
-
-    try {
-      self.messageStream = new SqsStream(options);
-    } catch (e) {
-      err = e;
-    }
-
-    done(err);
+    this[namespace].sqsClient = new AWS.SQS(options.awsConfig);
+    done();
   };
 }
 

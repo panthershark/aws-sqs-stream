@@ -3,7 +3,7 @@ var assert = require('assert');
 var _ = require('lodash');
 var broadway = require('broadway');
 var async = require('async');
-var sqsOptions = require('../private-sqs-options-streams1.json');
+var sqsOptions = require('../private-sqs-options.json');
 var validate = require('../validate.js');
 
 suite('Test Sqs Read Stream - Streams 1 interface', function() {
@@ -21,12 +21,11 @@ suite('Test Sqs Read Stream - Streams 1 interface', function() {
     app.plugins.init(function(err) {
       assert.ifError(err);
 
-      var sqsClient = app.plugins.sqs.messageStream.sqsClient;
       var inserts = _.map(_.range(10), function() {
 
         return function(cb) {
 
-          sqsClient.sendMessage({
+          app.plugins.sqs.sqsClient.sendMessage({
             MessageBody: 'message ' + Math.random(),
             QueueUrl: sqsOptions.QueueUrl,
             DelaySeconds: 0,
@@ -40,7 +39,7 @@ suite('Test Sqs Read Stream - Streams 1 interface', function() {
   });
 
   test('Read Stream', function(done) {
-    var readStream = app.plugins.sqs.messageStream;
+    var readStream = app.plugins.sqs.messageStream();
     var messageCount = 0;
 
     readStream.on('error', function(err) {
@@ -49,7 +48,7 @@ suite('Test Sqs Read Stream - Streams 1 interface', function() {
 
     readStream.on('data', function(msg) {
       messageCount++;
-      // console.log(msg);
+      console.log(msg);
       validate(msg);
       app.plugins.sqs.ack(msg, function() { console.log('msg ack'); });
     });
