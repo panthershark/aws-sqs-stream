@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tommydudebreaux/aws-sqs-stream.git"
+    "url": "git://github.com/tommymessbauer/aws-sqs-stream.git"
   },
   "keywords": [
     "aws",
@@ -19,9 +19,9 @@
   "author": "Tommy Messbauer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tommydudebreaux/aws-sqs-stream/issues"
+    "url": "https://github.com/tommymessbauer/aws-sqs-stream/issues"
   },
-  "homepage": "https://github.com/tommydudebreaux/aws-sqs-stream",
+  "homepage": "https://github.com/tommymessbauer/aws-sqs-stream",
   "dependencies": {
     "lodash": "~2.4.1",
     "aws-sdk": "~2.0.0-rc10",
