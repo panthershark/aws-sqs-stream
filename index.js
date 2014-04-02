@@ -57,6 +57,17 @@ var SqsPlugin = function(namespace) {
 
       sqsClient: null,
 
+      // @param msg: the content of the message
+      sendMessage: function(msg, callback) {
+
+        self.sqsClient.sendMessage({
+          MessageBody: msg,
+          QueueUrl: options.QueueUrl,
+          DelaySeconds: 0
+        }, callback);
+
+      },
+
       messageStream: function() {
         return new SqsStream(options);
       },
