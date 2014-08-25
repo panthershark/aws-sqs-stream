@@ -23,9 +23,10 @@
   },
   "homepage": "https://github.com/tommymessbauer/aws-sqs-stream",
   "dependencies": {
-    "lodash": "~2.4.1",
     "aws-sdk": "~2.0.0-rc10",
-    "memory-stream": "0.0.1"
+    "lodash": "~2.4.1",
+    "memory-stream": "0.0.1",
+    "mixdown-app": "^3.0.5"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
